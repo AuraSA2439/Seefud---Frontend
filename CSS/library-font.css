@@ -1,0 +1,88 @@
+/* Weight */
+.bold {
+	font-weight: bold;
+}
+
+.medium {
+	font-weight: 400;
+}
+
+/* Size */
+.xs {
+	font-size: 12px;
+	color: inherit;
+}
+
+.sm {
+	font-size: 14px;
+	color: inherit;
+}
+
+.base {
+	font-size: 16px;
+	color: inherit;
+}
+
+.lg {
+	font-size: 18px;
+	color: inherit;
+}
+
+.xl {
+	font-size: 20px;
+	color: inherit;
+}
+
+.xl2 {
+	font-size: 24px;
+	color: inherit;
+}
+
+.xl3 {
+	font-size: 30px;
+	color: inherit;
+}
+
+.xl4 {
+	font-size: 36px;
+	color: inherit;
+}
+
+.xl5 {
+	font-size: 48px;
+	color: inherit;
+}
+
+.xl6 {
+	font-size: 60px;
+	color: inherit;
+}
+
+.xl7{
+	font-size: 72px;
+	color: inherit;
+}
+
+.xl8{
+	font-size: 96px;
+	color: inherit;
+}
+
+.xl9{
+	font-size: 128px;
+	color: inherit;
+}
+
+
+h1, h2, h3, h4, h5 {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	background-color: inherit;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+}

@@ -1,0 +1,143 @@
+/* Basic */
+
+.prime {
+    background-color: #379777;
+}
+
+.white {
+    background-color: #fff;
+}
+
+
+/* Primary Color */
+
+.primary-50 {
+    background: #EAECEE;
+}
+.primary-100 {
+    background: #BFC3CB;
+}
+.primary-200 {
+    background: #A0A6B2;
+}
+.primary-300 {
+    background: #747D8F;
+}
+.primary-400 {
+    background: #596479;
+}
+.primary-500 {
+    background: #303D58;
+}
+.primary-600 {
+    background: #2C3850;
+}
+.primary-700 {
+    background: #222B3E;
+}
+.primary-800 {
+    background: #1A2230;
+}
+.primary-900 {
+    background: #141A25;
+}
+
+
+/* Yellow */
+
+.yellow-50 {
+    background: #FFFAE6;
+}
+.yellow-75 {
+    background: #FFEA96;
+}
+.yellow-100 {
+    background: #FFE16B;
+}
+.yellow-200 {
+    background: #FFD52B;
+}
+.yellow-300 {
+    background: #FFCC00;
+}
+.yellow-400 {
+    background: #B38F00;
+}
+.yellow-500 {
+    background: #9C7C00;
+}
+
+
+/* Red */
+
+.red-50 {
+    background: #FFEBEA;
+}
+.red-75 {
+    background: #FFAFAA;
+}
+.red-100 {
+    background: #FF8D87;
+}
+.red-200 {
+    background: #FF5C53;
+}
+.red-300 {
+    background: #FF3B30;
+}
+.red-400 {
+    background: #B32922;
+}
+.red-500 {
+    background: #9C241D;
+}
+
+
+/* Green */
+
+.green-50 {
+    background: #EBF9EE;
+}
+.green-75 {
+    background: #ACE8BB;
+}
+.green-100 {
+    background: #89DF9F;
+}
+.green-200 {
+    background: #57D175;
+}
+.green-300 {
+    background: #34C759;
+}
+.green-400 {
+    background: #248B3E;
+}
+.green-500 {
+    background: #207936;
+}
+
+
+/* Blue */
+
+.blue-50 {
+    background: #E6F2FF;
+}
+.blue-75 {
+    background: #96C8FF;
+}
+.blue-100 {
+    background: #6BB2FF;
+}
+.blue-200 {
+    background: #2B91FF;
+}
+.blue-300 {
+    background: #007AFF;
+}
+.blue-400 {
+    background: #0055B3;
+}
+.blue-500 {
+    background: #004A9C;
+}
