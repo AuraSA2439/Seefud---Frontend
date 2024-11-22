@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Urbanist', sans-serif;
+  /* border: solid 1px; */
+  width: 100%;
+  height: 100%;
+}
+
+/* body {
+    display: flex;
+} */
+
+main.dashboard-layout {
+  display: flex;
+}
+
+/* Side Menu */
+
+.side {
+  width: 280px;
+  display: flex;
+}
+
+.sidebar {
+  width: 40px;
+}
+
+/* Main Content */
+
+.main {
+  height: auto;
+  padding: 32px 40px;
+}
+
+.frame {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info {
+  /* height: 120px; */
+  width: auto;
+  height: 20%;
+  padding: 10px 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.status {
+  /* width: 160px; */
+  height: auto;
+  flex-grow: 1;
+  border-radius: 10px;
+  color: white;
+  padding: 8px;
+  gap: 4px;
+}
+
+.title-hor {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0;
+  height: fit-content;
+  border-bottom: solid 4px;
+}
+
+#total_user .title-hor {
+  border-color: #ffea96;
+}
+
+#total_consumer .title-hor {
+  border-color: #ffafaa;
+}
+
+#total_vendor .title-hor {
+  border-color: #ace8bb;
+}
+
+#total_report .title-hor {
+  border-color: #96c8ff;
+}
+
+.stats {
+  height: auto;
+  display: flex;
+  justify-content: end;
+}
+
+.navigation {
+  /* height: 52px; */
+  width: auto;
+  height: fit-content;
+  padding: 10px 20px;
+  border-top: solid 8px #bfc3cb;
+}
+
+.title-ver {
+  width: fit-content;
+  padding-right: 20px;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  color: #303d58;
+  border-bottom: solid 4px #303d58;
+}
+
+.content {
+  width: auto;
+  height: 70%;
+  padding: 4px 20px 20px 20px;
+}
+
+.table {
+  border: solid 1px #747d8f;
+  border-radius: 10px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input {
+  padding: 0 20px;
+  border-radius: 12px;
+}
+
+input,
+button {
+  border: 0;
+  margin-bottom: 8px;
+}
+
+button {
+  box-shadow: 2px 2px 4px #222b3e;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button::after {
+  box-shadow: none;
+}
