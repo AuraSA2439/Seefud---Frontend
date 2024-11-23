@@ -15,7 +15,7 @@ const handleLogin = async () => {
 }
 </script>
 <template>
-  <main class="auth-layout">
+  <main>
     <div class="login-box primary-500">
       <div class="title-box xl5 bold">SEEFUD</div>
       <form @submit.prevent="handleLogin" class="input-form">
