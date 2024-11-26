@@ -15,9 +15,49 @@
 <body class="primary-50">
     <div class="side">
         <div class="sidebar primary-400">
-
+            <div class="popup-btn" onclick="sidemenu_toggle()"><span class="material-icons">dashboard</span></div>
         </div>
-        <div class="sidemenu primary-500"></div>
+        <div class="sidemenu primary-500">
+            <div class="img-contain"><img src="/Assets/seefud logo.png" alt="Logo Seefud"></div>
+            <div class="account" onclick="logout_popup()">
+                <div class="img-frame primary-100">
+                    <!-- <img src="" alt="avatar"> -->
+                </div>
+                <div class="account-details">
+                    <div class="bold sm">John Doe</div>
+                    <div class="medium sm">Administrator</div>
+                </div>
+            </div>
+            <div class="menu">
+                <!-- <p class="title">MAIN</p> -->
+                <ul>
+                  <li class="active">
+                    <a href="index.html">
+                      <span class="material-icons">analytics</span>
+                      <div class="txt">Dashboard</div>
+                    </a>
+                  </li>
+                  <li class="#">
+                    <a href="user data.html">
+                      <span class="material-icons">person</span>
+                      <div class="txt">User</div>
+                    </a>
+                  </li>
+                  <li class="#">
+                    <a href="#">
+                      <span class="material-icons">restaurant</span>
+                      <div class="txt">Vendor</div>
+                    </a>
+                  </li>
+                  <li class="#">
+                    <a href="#">
+                      <span class="material-icons">gpp_maybe</span>
+                      <div class="txt">Report</div>
+                    </a>
+                  </li>
+                </ul>
+            </div>
+        </div>
     </div>
     <div class="main">
         <div class="frame white">
@@ -148,7 +188,33 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="nav-bot primary-500"></div>
+                    <div class="nav-bot primary-500">
+                        <div class="wrapper">
+                            <span class="material-icons">chevron_left</span>
+                            <div class="page-number">
+                                <div class="icon-number bold xs active">1</div>
+                                <div class="icon-number bold xs">2</div>
+                                <div class="icon-number bold xs">3</div>
+                                <div class="icon-number bold xs">4</div>
+                                <div class="icon-number bold xs">5</div>
+                            </div>
+                            <span class="material-icons">chevron_right</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popups -->
+    <div class="popup-wrap-copy1" id="popup-logout-click">
+        <div class="popup primary-500" id="popup-logout">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+            <div class="confirm">
+                <div class="xl">Do you want to logout?</div>
+                <div class="button-wrap">
+                    <button class="btn-medium blue-300 bold xl" id="logout" onclick="logout()">Yes</button>
+                    <button class="btn-medium primary-300 bold xl" onclick="closePopup()">Cancel</button>
                 </div>
             </div>
         </div>

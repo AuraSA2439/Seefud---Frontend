@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='/CSS/styles-general.css'>
+    <link rel='stylesheet' type='text/css' href='/CSS/library-color.css'>
+    <link rel='stylesheet' type='text/css' href='/CSS/library-font.css'>
+    <link rel='stylesheet' type='text/css' href='/CSS/library-icon.css'>
+    <script src="script.js"></script>
+    <link href='https://fonts.googleapis.com/css2?family=Urbanist&family=IBM+Plex+Sans' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>SEEFUD CRUD - HOME</title>
+</head>
+<body class="primary-50">
+    <div class="side">
+        <div class="sidebar primary-400">
+            <div class="popup-btn" onclick="sidemenu_toggle()"><span class="material-icons">dashboard</span></div>
+        </div>
+        <div class="sidemenu primary-500">
+            <div class="img-contain"><img src="/Assets/seefud logo.png" alt="Logo Seefud"></div>
+            <div class="account" onclick="logout_popup()">
+                <div class="img-frame primary-100">
+                    <!-- <img src="" alt="avatar"> -->
+                </div>
+                <div class="account-details">
+                    <div class="bold sm">John Doe</div>
+                    <div class="medium sm">Administrator</div>
+                </div>
+            </div>
+            <div class="menu">
+                <!-- <p class="title">MAIN</p> -->
+                <ul>
+                  <li class="#">
+                    <a href="index.html">
+                      <span class="material-icons">analytics</span>
+                      <div class="txt">Dashboard</div>
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="user data.html">
+                      <span class="material-icons">person</span>
+                      <div class="txt">User</div>
+                    </a>
+                  </li>
+                  <li class="#">
+                    <a href="#">
+                      <span class="material-icons">restaurant</span>
+                      <div class="txt">Vendor</div>
+                    </a>
+                  </li>
+                  <li class="#">
+                    <a href="#">
+                      <span class="material-icons">gpp_maybe</span>
+                      <div class="txt">Report</div>
+                    </a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="frame white">
+            <div class="navigation">
+                <div class="title-ver">
+                    <span class="material-icons">update</span>
+                    <div class="xl bold">User Data</div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="table primary-300">
+                    <div class="table-wrapper1">
+                        <table class="main-tab">
+                            <thead class="medium base white">
+                                <tr>
+                                    <th>Nama User</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data" class="sm white">
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr><tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>John Doe</th>
+                                    <th>johndoe@gmail.com</th>
+                                    <th>Vendor</th>
+                                    <th>
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="nav-bot primary-500">
+                        <div class="wrapper">
+                            <span class="material-icons">chevron_left</span>
+                            <div class="page-number">
+                                <div class="icon-number bold xs active">1</div>
+                                <div class="icon-number bold xs">2</div>
+                                <div class="icon-number bold xs">3</div>
+                                <div class="icon-number bold xs">4</div>
+                                <div class="icon-number bold xs">5</div>
+                            </div>
+                            <span class="material-icons">chevron_right</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popups -->
+    <div class="popup-wrap-copy2" id="popup-logout-click">
+        <div class="popup primary-500" id="popup-logout">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+            <div class="confirm">
+                <div class="xl">Do you want to logout?</div>
+                <div class="button-wrap">
+                    <button class="btn-medium blue-300 bold xl" id="logout" onclick="logout()">Yes</button>
+                    <button class="btn-medium primary-300 bold xl" onclick="closePopup()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-wrap-copy1" id="popup-delete-click">
+        <div class="popup primary-500" id="popup-delete">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+            <div class="confirm">
+                <div class="bold xl">Apakah kamu yakin kamu mau menghapus data ini?</div>
+                <div class="button-wrap">
+                    <button class="btn-medium red-300 bold xl" id="delete" onclick="delete_data()">Yes</button>
+                    <button class="btn-medium green-300 bold xl" onclick="closePopup()">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-wrap" id="popup-edit-click">
+        <div class="popup primary-500" id="popup-edit">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+            <div class="form">
+                <div class="separete">
+                    <div class="input medium lg">
+                        Nama User
+                        <input type="text" name='username' disabled="disabled" placeholder='Nama User'>
+                    </div>
+                    <div class="input medium lg">
+                        Email
+                        <input type="text" name='email' disabled="disabled" placeholder='namamu@gmail.com'>
+                    </div>
+                    <div class="input input-big medium lg">
+                        Role
+                        <div class="wrapper base">
+                            <input type="radio" id="vendor-role" name="role" value="Vendor">
+                            <label for="vendor-role">Vendor</label><br>
+                            <input type="radio" id="consumer-role" name="role" value="Consumer">
+                            <label for="consumer-role">Consumer</label><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-wrap">
+                <button class="btn-medium green-300 bold xl" id="terima" onclick="redirectToReport()">Terima</button>
+                <button class="btn-medium red-300 bold xl" onclick="closePopup()">Tolak</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
