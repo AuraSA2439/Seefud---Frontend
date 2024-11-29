@@ -1,4 +1,6 @@
 <script setup>
+import Sidebar from '@/components/Sidebar.vue'
+
 import ResponseClick from '@/components/PopUp/ResponseClick.vue'
 import ReportClick from '@/components/PopUp/ReportClick.vue'
 import Logout from '@/components/PopUp/Logout.vue'
@@ -11,6 +13,7 @@ const popup = usePopup()
 
 <template>
   <main>
+    <Sidebar />
     <div class="main">
       <div class="frame white">
         <div class="navigation">

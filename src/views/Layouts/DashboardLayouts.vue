@@ -1,9 +1,5 @@
 <script>
-import Sidebar from '@/components/Sidebar.vue'
 export default {
-  components: {
-    Sidebar,
-  },
   name: 'DashboardLayout',
 
   mounted() {
@@ -33,14 +29,11 @@ export default {
 </script>
 
 <template>
-  <main>
-    <Sidebar />
-    <RouterView v-slot="{ Component }">
-      <Transition name="fade">
-        <component :is="Component" />
-      </Transition>
-    </RouterView>
-  </main>
+  <RouterView v-slot="{ Component }">
+    <Transition name="fade">
+      <component :is="Component" />
+    </Transition>
+  </RouterView>
 </template>
 
 <style>

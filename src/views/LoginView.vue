@@ -17,17 +17,18 @@ const handleLogin = async () => {
 <template>
   <main>
     <div class="login-box primary-500">
-      <div class="title-box xl5 bold">SEEFUD</div>
-      <form @submit.prevent="handleLogin" class="input-form">
+      <!-- <div class="title-box xl5 bold">SEEFUD</div> -->
+      <img src="/assets/images/seefud-logo.png" alt="logo" />
+      <form class="input-form" @submit.prevent="handleLogin">
         <div class="input-box">
           <input
-            v-model="username"
             type="text"
             name="username/email"
             placeholder="Username/Email"
+            v-model="username"
           />
           <br />
-          <input v-model="password" type="text" name="password" placeholder="Password" />
+          <input type="text" name="password" placeholder="Password" v-model="password" />
         </div>
         <button type="submit" id="login-button" class="xl bold prime">LOGIN</button>
         <a href="" class="base">Forgot password?</a>

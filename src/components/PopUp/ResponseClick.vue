@@ -35,7 +35,16 @@ const popup = usePopup()
             Rating
             <div class="wrapper sm" id="rating">
               Masukan angka 0.00 sampai 5.00:
-              <input type="number" id="rating" name="rating" min="0" max="5" step="0.01" disabled />
+              <input
+                type="number"
+                id="rating"
+                name="rating"
+                min="0"
+                max="5"
+                step="0.01"
+                disabled
+                placeholder="5.00"
+              />
             </div>
           </div>
         </div>
