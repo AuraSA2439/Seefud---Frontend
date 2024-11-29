@@ -141,6 +141,7 @@ body {
     padding: 10px 20px;
     display: flex;
     gap: 20px;
+    border-bottom: solid 8px #BFC3CB;
 }
 
 .status {
@@ -188,7 +189,7 @@ body {
     width: auto;
     height: fit-content;
     padding: 10px 20px;
-    border-top: solid 8px #BFC3CB;
+    /* border-top: solid 4px transparent; */
 }
 
 .title-ver {
@@ -244,6 +245,27 @@ thead {
 th {
     width: auto;
     border: solid 1px #A0A6B2;
+}
+
+th img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+}
+
+th.aksi-cell {
+    padding: 4px;
+}
+
+th.count-cell {
+    width: 72px;
+    font-weight: bold;
+}
+
+th.count-cell a {
+    color: red;
+    text-decoration: underline;
 }
 
 th .wrapper {
@@ -337,27 +359,15 @@ tbody tr th {
 
 
 /* Popups */
-.popup-wrap {
-    display: none;
-    position: absolute;
-	background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
 
 /* kalo bisa, tolong buat ini popup wrap nya kagak perlu di hardcode tiap ada popup baru hehe */
-.popup-wrap-copy1 {
+.popup-wrap, .popup-wrap-copy1, .popup-wrap-copy2, .popup-wrap-copy3, .popup-wrap-copy4 {
     display: none;
     position: absolute;
 	background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
-.popup-wrap-copy2 {
-    display: none;
-    position: absolute;
-	background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
 
 .popup {
     position: fixed;
@@ -402,10 +412,31 @@ tbody tr th {
     height: fit-content;
 }
 
-#popup-edit {
+#popup-edit-user {
+    top: 18%;
+    left: 38%;
+    width: 400px;
+    height: 320px;
+}
+
+#popup-edit-vendor {
+    top: 8%;
+    left: 38%;
+    width: 400px;
+    height: 480px;
+}
+
+#popup-edit-report {
     top: 18%;
     left: 33%;
-    width: 400px;
+    width: 560px;
+    height: 400px;
+}
+
+#popup-report-counts {
+    top: 18%;
+    left: 27%;
+    width: 680px;
     height: 320px;
 }
 
@@ -428,6 +459,13 @@ tbody tr th {
     width: auto;
     height: 100%;
     padding: 0 20px;
+}
+
+.reports {
+    height: 260px;
+    overflow: auto;
+    /* color: #303D58; */
+    font-size: 12px !important;
 }
 
 .input {
@@ -479,7 +517,7 @@ tbody tr th {
     align-items: center;
 }
 
-#foto_bukti, #rating {
+#foto_bukti, #foto_vendor, #rating {
     color: #BFC3CB;
 }
 

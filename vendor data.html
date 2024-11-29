@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' href='/CSS/styles-general.css'>
+    <link rel='stylesheet' type='text/css' href='/CSS/library-color.css'>
+    <link rel='stylesheet' type='text/css' href='/CSS/library-font.css'>
+    <link rel='stylesheet' type='text/css' href='/CSS/library-icon.css'>
+    <script src="script.js"></script>
+    <link href='https://fonts.googleapis.com/css2?family=Urbanist&family=IBM+Plex+Sans' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>SEEFUD CRUD - VENDOR</title>
+</head>
+<body class="primary-50">
+    <div class="side">
+        <div class="sidebar primary-400">
+            <div class="popup-btn" onclick="sidemenu_toggle()"><span class="material-icons">dashboard</span></div>
+        </div>
+        <div class="sidemenu primary-500">
+            <div class="img-contain"><img src="/Assets/seefud logo.png" alt="Logo Seefud"></div>
+            <div class="account" onclick="logout_popup()">
+                <div class="img-frame primary-100">
+                    <!-- <img src="" alt="avatar"> -->
+                </div>
+                <div class="account-details">
+                    <div class="bold sm">John Doe</div>
+                    <div class="medium sm">Administrator</div>
+                </div>
+            </div>
+            <div class="menu">
+                <!-- <p class="title">MAIN</p> -->
+                <ul>
+                  <li class="#">
+                    <a href="index.html">
+                      <span class="material-icons">analytics</span>
+                      <div class="txt">Dashboard</div>
+                    </a>
+                  </li>
+                  <li class="#">
+                    <a href="user data.html">
+                      <span class="material-icons">person</span>
+                      <div class="txt">User</div>
+                    </a>
+                  </li>
+                  <li class="active">
+                    <a href="vendor data.html">
+                      <span class="material-icons">restaurant</span>
+                      <div class="txt">Vendor</div>
+                    </a>
+                  </li>
+                  <li class="#">
+                    <a href="report data.html">
+                      <span class="material-icons">gpp_maybe</span>
+                      <div class="txt">Report</div>
+                    </a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="frame white">
+            <div class="navigation">
+                <div class="title-ver">
+                    <span class="material-icons">update</span>
+                    <div class="xl bold">Vendor Data</div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="table primary-300">
+                    <div class="table-wrapper1">
+                        <table class="main-tab">
+                            <thead class="medium base white">
+                                <tr>
+                                    <th>Nama Vendor</th>
+                                    <th>Deksripsi</th>
+                                    <th>Foto</th>
+                                    <th>Lokasi</th>
+                                    <th class="count-cell">Report(s)</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data" class="sm white">
+                                <tr>
+                                    <th>Spicy Yakiniku</th>
+                                    <th>Cheap bento box foods</th>
+                                    <th>
+                                        <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                                    </th>
+                                    <th>Sukapura, Dayeuhkolot, Bandung Regency, West Java 40267</th>
+                                    <th class="count-cell">
+                                        <a href="#" onclick="report_counts_popup()">3</a>
+                                    </th>
+                                    <th class="aksi-cell">
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Spicy Yakiniku</th>
+                                    <th>Cheap bento box foods</th>
+                                    <th>
+                                        <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                                    </th>
+                                    <th>Sukapura, Dayeuhkolot, Bandung Regency, West Java 40267</th>
+                                    <th class="count-cell">
+                                        <a href="#" onclick="report_counts_popup()">3</a>
+                                    </th>
+                                    <th class="aksi-cell">
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Spicy Yakiniku</th>
+                                    <th>Cheap bento box foods</th>
+                                    <th>
+                                        <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                                    </th>
+                                    <th>Sukapura, Dayeuhkolot, Bandung Regency, West Java 40267</th>
+                                    <th class="count-cell">
+                                        <a href="#" onclick="report_counts_popup()">3</a>
+                                    </th>
+                                    <th class="aksi-cell">
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Spicy Yakiniku</th>
+                                    <th>Cheap bento box foods</th>
+                                    <th>
+                                        <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                                    </th>
+                                    <th>Sukapura, Dayeuhkolot, Bandung Regency, West Java 40267</th>
+                                    <th class="count-cell">
+                                        <a href="#" onclick="report_counts_popup()">3</a>
+                                    </th>
+                                    <th class="aksi-cell">
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Spicy Yakiniku</th>
+                                    <th>Cheap bento box foods</th>
+                                    <th>
+                                        <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                                    </th>
+                                    <th>Sukapura, Dayeuhkolot, Bandung Regency, West Java 40267</th>
+                                    <th class="count-cell">
+                                        <a href="#" onclick="report_counts_popup()">3</a>
+                                    </th>
+                                    <th class="aksi-cell">
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Spicy Yakiniku</th>
+                                    <th>Cheap bento box foods</th>
+                                    <th>
+                                        <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                                    </th>
+                                    <th>Sukapura, Dayeuhkolot, Bandung Regency, West Java 40267</th>
+                                    <th class="count-cell">
+                                        <a href="#" onclick="report_counts_popup()">3</a>
+                                    </th>
+                                    <th class="aksi-cell">
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Spicy Yakiniku</th>
+                                    <th>Cheap bento box foods</th>
+                                    <th>
+                                        <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                                    </th>
+                                    <th>Sukapura, Dayeuhkolot, Bandung Regency, West Java 40267</th>
+                                    <th class="count-cell">
+                                        <a href="#" onclick="report_counts_popup()">3</a>
+                                    </th>
+                                    <th class="aksi-cell">
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Spicy Yakiniku</th>
+                                    <th>Cheap bento box foods</th>
+                                    <th>
+                                        <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                                    </th>
+                                    <th>Sukapura, Dayeuhkolot, Bandung Regency, West Java 40267</th>
+                                    <th class="count-cell">
+                                        <a href="#" onclick="report_counts_popup()">3</a>
+                                    </th>
+                                    <th class="aksi-cell">
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Spicy Yakiniku</th>
+                                    <th>Cheap bento box foods</th>
+                                    <th>
+                                        <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                                    </th>
+                                    <th>Sukapura, Dayeuhkolot, Bandung Regency, West Java 40267</th>
+                                    <th class="count-cell">
+                                        <a href="#" onclick="report_counts_popup()">3</a>
+                                    </th>
+                                    <th class="aksi-cell">
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th>Spicy Yakiniku</th>
+                                    <th>Cheap bento box foods</th>
+                                    <th>
+                                        <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                                    </th>
+                                    <th>Sukapura, Dayeuhkolot, Bandung Regency, West Java 40267</th>
+                                    <th class="count-cell">
+                                        <a href="#" onclick="report_counts_popup()">3</a>
+                                    </th>
+                                    <th class="aksi-cell">
+                                        <div class="wrapper">
+                                            <button class="respon-btn btn-small red-300 bold sm" onclick="delete_popup()">Delete</button>
+                                            <button class="respon-btn btn-small green-300 bold sm" onclick="edit_popup()">Edit</button>
+                                        </div>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="nav-bot primary-500">
+                        <div class="wrapper">
+                            <span class="material-icons">chevron_left</span>
+                            <div class="page-number">
+                                <div class="icon-number bold xs active">1</div>
+                                <div class="icon-number bold xs">2</div>
+                                <div class="icon-number bold xs">3</div>
+                                <div class="icon-number bold xs">4</div>
+                                <div class="icon-number bold xs">5</div>
+                            </div>
+                            <span class="material-icons">chevron_right</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popups -->
+    <div class="popup-wrap-copy4" id="popup-report-click">
+        <div class="popup primary-500 popout" id="popup-report-counts">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+            <div class="reports">
+                <table class="main-tab">
+                    <thead class="medium base primary-900">
+                        <tr>
+                            <th>Nama Vendor</th>
+                            <th>Pelapor</th>
+                            <th>Waktu</th>
+                            <th>Foto</th>
+                            <th>Komentar</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data" class="sm primary-700">
+                        <tr>
+                            <th>Spicy Yakiniku</th>
+                            <th>Asta</th>
+                            <th>11-29-2024 01:25 PM</th>
+                            <th>
+                                <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                            </th>
+                            <th>Tempat Kotor</th>
+                            <th>
+                                <button class="respon-btn btn-small blue-300 bold sm" onclick="report_response()">Tanggapi!</button>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Spicy Yakiniku</th>
+                            <th>Asta</th>
+                            <th>11-29-2024 01:25 PM</th>
+                            <th>
+                                <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                            </th>
+                            <th>Tempat Kotor</th>
+                            <th>
+                                <button class="respon-btn btn-small blue-300 bold sm" onclick="report_response()">Tanggapi!</button>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Spicy Yakiniku</th>
+                            <th>Asta</th>
+                            <th>11-29-2024 01:25 PM</th>
+                            <th>
+                                <img src="/Assets/foto vendor.jpg" alt="vendor's photo">
+                            </th>
+                            <th>Tempat Kotor</th>
+                            <th>
+                                <button class="respon-btn btn-small primary-300 bold sm" onclick="report_response()" disabled="disabled">Selesai</button>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>   
+            </div>
+        </div>
+    </div>
+    <div class="popup-wrap-copy3" id="popup-response-click">
+        <div class="popup primary-500" id="popup-response">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+            <div class="form">
+                <div class="seperate">
+                    <div class="input medium lg">
+                        Pelapor
+                        <input type="text" name='consumer' disabled="disabled" placeholder='Nama Pelapor'>
+                    </div>
+                    <div class="input medium lg">
+                        Nama Vendor
+                        <input type="text" name='vendor' disabled="disabled" placeholder='Nama Vendor yang Dilaporkan'>
+                    </div>
+                    <div class="input input-big medium lg">
+                        Komentar
+                        <textarea name="comment" id="comment" disabled="disabled" placeholder='Deksripsi'></textarea>
+                    </div>
+                </div>
+                <div class="seperate">
+                    <div class="input medium lg">
+                        Foto Bukti
+                        <div class="wrapper base" id="foto_bukti">
+                            File(s):
+                            <input type="file" id="consumer_photo" name="bukti" accept=".jpg|.png" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="input medium lg">
+                        Rating
+                        <div class="wrapper sm" id="rating">
+                            Masukan angka 0.00 sampai 5.00:
+                            <input type="number" id="rating" name="rating" min="0" max="5" step="0.01" disabled="disabled"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-wrap">
+                <button class="btn-medium green-300 bold xl" id="terima" onclick="redirectToReport()">Terima</button>
+                <button class="btn-medium red-300 bold xl" onclick="closePopup()">Tolak</button>
+            </div>
+        </div>
+    </div>
+    <div class="popup-wrap-copy2" id="popup-logout-click">
+        <div class="popup primary-500" id="popup-logout">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+            <div class="confirm">
+                <div class="xl">Do you want to logout?</div>
+                <div class="button-wrap">
+                    <button class="btn-medium blue-300 bold xl" id="logout" onclick="logout()">Yes</button>
+                    <button class="btn-medium primary-300 bold xl" onclick="closePopup()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-wrap-copy1" id="popup-delete-click">
+        <div class="popup primary-500" id="popup-delete">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+            <div class="confirm">
+                <div class="bold xl">Apakah kamu yakin kamu mau menghapus data ini?</div>
+                <div class="button-wrap">
+                    <button class="btn-medium red-300 bold xl" id="delete" onclick="delete_data()">Yes</button>
+                    <button class="btn-medium green-300 bold xl" onclick="closePopup()">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-wrap" id="popup-edit-click">
+        <div class="popup primary-500 popup-edit" id="popup-edit-vendor">
+            <button class="close" onclick="closePopup()"><span class="material-icons">close</span></button>
+            <div class="form">
+                <div class="separete">
+                    <div class="input medium lg">
+                        Nama Vendor
+                        <input type="text" name='username' disabled="disabled" placeholder='Nama User'>
+                    </div>
+                    <div class="input input-big medium lg">
+                        Deksripsi
+                        <textarea name="comment" id="comment" disabled="disabled" placeholder='Deksripsi'></textarea>
+                    </div>
+                    <div class="input medium lg">
+                        Foto Vendor
+                        <div class="wrapper base" id="foto_vendor">
+                            File(s):
+                            <input type="file" id="consumer_photo" name="bukti" accept=".jpg|.png" disabled="disabled">
+                        </div>
+                    </div>
+                    <div class="input medium lg">
+                        Lokasi
+                        <input type="text" name='email' disabled="disabled" placeholder='Lokasi Vendor'>
+                    </div>
+                </div>
+            </div>
+            <div class="button-wrap">
+                <button class="btn-medium green-300 bold xl" id="terima" onclick="redirectToReport()">Terima</button>
+                <button class="btn-medium red-300 bold xl" onclick="closePopup()">Tolak</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
