@@ -1,33 +1,13 @@
 <script setup>
-import Sidebar from '@/components/Sidebar.vue'
+import ResponseClick from '@/components/PopUp/ResponseClick.vue'
+import Logout from '@/components/PopUp/Logout.vue'
 
-let currentTargetButtonTanggapi = null
-
-const report_response = (target) => {
-  currentTargetButtonTanggapi = target
-  document.getElementById('popup-response-click').style.display = 'block'
-}
-
-const closePopup = () => {
-  document.querySelector('.popup-wrap').style.display = 'none'
-}
-
-const redirectToReport = () => {
-  if (!currentTargetButtonTanggapi) return // Pastikan tombol target ada
-  closePopup()
-
-  // Disable button dan tambahkan class done hanya pada elemen yang benar
-  currentTargetButtonTanggapi.setAttribute('disabled', 'disabled')
-  const row = currentTargetButtonTanggapi.closest('tr') // Pastikan manipulasi baris yang tepat
-  if (row) {
-    row.classList.add('done')
-  }
-}
+import { usePopup } from '@/stores/popup'
+const popup = usePopup()
 </script>
 
 <template>
   <main>
-    <Sidebar />
     <div class="main">
       <div class="frame white">
         <div class="info">
@@ -88,7 +68,7 @@ const redirectToReport = () => {
                     <th>
                       <button
                         class="respon-btn btn-small blue-300 bold sm"
-                        @click="report_response($event.target)"
+                        @click="popup.report_response($event.target)"
                       >
                         Tanggapi!
                       </button>
@@ -102,7 +82,7 @@ const redirectToReport = () => {
                     <th>
                       <button
                         class="respon-btn btn-small blue-300 bold sm"
-                        @click="report_response($event.target)"
+                        @click="popup.report_response($event.target)"
                       >
                         Tanggapi!
                       </button>
@@ -116,7 +96,7 @@ const redirectToReport = () => {
                     <th>
                       <button
                         class="respon-btn btn-small blue-300 bold sm"
-                        @click="report_response($event.target)"
+                        @click="popup.report_response($event.target)"
                       >
                         Tanggapi!
                       </button>
@@ -130,7 +110,7 @@ const redirectToReport = () => {
                     <th>
                       <button
                         class="respon-btn btn-small blue-300 bold sm"
-                        @click="report_response($event.target)"
+                        @click="popup.report_response($event.target)"
                       >
                         Tanggapi!
                       </button>
@@ -144,7 +124,7 @@ const redirectToReport = () => {
                     <th>
                       <button
                         class="respon-btn btn-small blue-300 bold sm"
-                        @click="report_response($event.target)"
+                        @click="popup.report_response($event.target)"
                       >
                         Tanggapi!
                       </button>
@@ -158,7 +138,7 @@ const redirectToReport = () => {
                     <th>
                       <button
                         class="respon-btn btn-small blue-300 bold sm"
-                        @click="report_response($event.target)"
+                        @click="popup.report_response($event.target)"
                       >
                         Tanggapi!
                       </button>
@@ -172,7 +152,7 @@ const redirectToReport = () => {
                     <th>
                       <button
                         class="respon-btn btn-small blue-300 bold sm"
-                        @click="report_response($event.target)"
+                        @click="popup.report_response($event.target)"
                       >
                         Tanggapi!
                       </button>
@@ -186,7 +166,7 @@ const redirectToReport = () => {
                     <th>
                       <button
                         class="respon-btn btn-small blue-300 bold sm"
-                        @click="report_response($event.target)"
+                        @click="popup.report_response($event.target)"
                       >
                         Tanggapi!
                       </button>
@@ -200,7 +180,7 @@ const redirectToReport = () => {
                     <th>
                       <button
                         class="respon-btn btn-small blue-300 bold sm"
-                        @click="report_response($event.target)"
+                        @click="popup.report_response($event.target)"
                       >
                         Tanggapi!
                       </button>
@@ -209,94 +189,25 @@ const redirectToReport = () => {
                 </tbody>
               </table>
             </div>
-            ``
-            <div class="nav-bot primary-500"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="popup-wrap" id="popup-response-click">
-      <div class="popup primary-500" id="popup-response">
-        <button class="close" @click="closePopup()">
-          <span class="material-icons">close</span>
-        </button>
-        <div class="form">
-          <div class="seperate">
-            <div class="input medium lg">
-              Nama Pelapor
-              <input type="text" name="consumer" disabled="disabled" placeholder="Nama Pelapor" />
-            </div>
-            <div class="input medium lg">
-              Nama Vendor
-              <input
-                type="text"
-                name="vendor"
-                disabled="disabled"
-                placeholder="Nama Vendor yang Dilaporkan"
-              />
-            </div>
-            <div class="input input-big medium lg">
-              Komentar
-              <textarea
-                name="comment"
-                id="comment"
-                disabled="disabled"
-                placeholder="Deksripsi"
-              ></textarea>
-            </div>
-          </div>
-          <div class="seperate">
-            <div class="input medium lg">
-              Foto Bukti
-              <div class="wrapper base" id="foto_bukti">
-                File(s):
-                <input
-                  type="file"
-                  id="consumer_photo"
-                  name="bukti"
-                  accept=".jpg|.png"
-                  disabled="disabled"
-                />
-              </div>
-            </div>
-            <div class="input medium lg">
-              Rating
-              <div class="wrapper sm" id="rating">
-                Masukan angka 0.00 sampai 5.00:
-                <input
-                  type="number"
-                  id="rating"
-                  name="rating"
-                  min="0"
-                  max="5"
-                  step="0.01"
-                  disabled="disabled"
-                />
+
+            <div class="nav-bot primary-500">
+              <div class="wrapper">
+                <span class="material-icons">chevron_left</span>
+                <div class="page-number">
+                  <div class="icon-number bold xs active">1</div>
+                  <div class="icon-number bold xs">2</div>
+                  <div class="icon-number bold xs">3</div>
+                  <div class="icon-number bold xs">4</div>
+                  <div class="icon-number bold xs">5</div>
+                </div>
+                <span class="material-icons">chevron_right</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="button-wrap">
-          <button class="btn-medium green-300 bold xl" id="terima" @click="redirectToReport()">
-            Terima
-          </button>
-          <button class="btn-medium red-300 bold xl" @click="closePopup()">Tolak</button>
-        </div>
       </div>
     </div>
+    <Logout />
+    <ResponseClick />
   </main>
 </template>
-<style scoped>
-.content table tr {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-.content table tr.done {
-  background-color: #c3c3c3;
-}
-button[disabled] {
-  filter: grayscale(1);
-  cursor: not-allowed;
-}
-</style>

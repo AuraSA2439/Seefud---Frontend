@@ -10,19 +10,113 @@
 main {
   display: flex;
 }
-/* body {
-    display: flex;
-} */
 
 /* Side Menu */
 
 .side {
-  width: 280px;
+  width: fit-content;
   display: flex;
+  color: #eaecee;
 }
 
 .sidebar {
+  padding: 20px 0;
   width: 40px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-btn {
+  padding: 4px;
+  height: fit-content;
+  width: auto;
+  cursor: pointer;
+}
+
+.popup-btn::after {
+  transform: rotate(45);
+}
+
+.sidemenu {
+  width: 180px;
+  height: auto;
+  padding: 15px 0;
+  /* transition: 0.3s ease-in-out, 0.3s ease-in-out; */
+}
+
+.img-contain {
+  height: fit-content;
+  padding: 10px 0;
+}
+
+.img-frame {
+  border-radius: 50%;
+  border: solid 1px #eaecee;
+  width: 32px;
+  height: 32px;
+}
+
+.account {
+  width: auto;
+  padding: 20px 8px;
+  display: flex;
+  gap: 8px;
+  height: fit-content;
+  border-top: solid 2px #596479;
+  cursor: pointer;
+}
+
+.account-details {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.menu {
+  height: fit-content;
+}
+
+.menu ul {
+  list-style: none;
+  height: 60px;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px #596479;
+}
+
+.menu ul li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 8px;
+}
+
+.menu ul li a span,
+.menu ul li a .txt {
+  height: fit-content;
+}
+
+.menu ul li a span {
+  color: #bfc3cb;
+}
+
+.menu ul li > a:hover,
+.menu ul li.active > a {
+  color: #303d58;
+  background-color: #eaecee;
+  border-left: solid 8px #303d58;
+}
+
+.menu ul li a:hover > span,
+.menu ul li.active a > span {
+  color: #303d58;
 }
 
 /* Main Content */
@@ -47,6 +141,7 @@ main {
   padding: 10px 20px;
   display: flex;
   gap: 20px;
+  border-bottom: solid 8px #bfc3cb;
 }
 
 .status {
@@ -94,7 +189,7 @@ main {
   width: auto;
   height: fit-content;
   padding: 10px 20px;
-  border-top: solid 8px #bfc3cb;
+  /* border-top: solid 4px transparent; */
 }
 
 .title-ver {
@@ -114,6 +209,7 @@ main {
 }
 
 .table {
+  height: auto;
   border: solid 1px #747d8f;
   border-radius: 10px;
   display: flex;
@@ -123,6 +219,11 @@ main {
 
 .table-wrapper {
   max-height: 304px;
+  overflow-y: auto;
+}
+
+.table-wrapper1 {
+  max-height: 420px;
   overflow-y: auto;
 }
 
@@ -143,6 +244,33 @@ thead {
 th {
   width: auto;
   border: solid 1px #a0a6b2;
+}
+
+th img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+}
+
+th.aksi-cell {
+  padding: 4px;
+}
+
+th.count-cell {
+  width: 72px;
+  font-weight: bold;
+}
+
+th.count-cell a {
+  color: red;
+  text-decoration: underline;
+}
+
+th .wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }
 
 tr {
@@ -189,13 +317,57 @@ tbody tr th {
 
 .nav-bot {
   height: 28px;
+  color: #eaecee;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
-.popup-wrap {
+.nav-bot .wrapper,
+.nav-bot .wrapper .page-number {
+  display: flex;
+  width: fit-content;
+}
+
+.nav-bot .wrapper {
+  border-radius: 15px;
+  background-color: #596479;
+}
+
+.nav-bot .wrapper span {
+  cursor: pointer;
+}
+
+.icon-number {
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #303d58 !important;
+  border-radius: 4px;
+  border: solid 1px #596479;
+  cursor: pointer;
+}
+
+.icon-number.active {
+  color: inherit !important;
+  background-color: #a0a6b2;
+  border: solid 1px #747d8f;
+}
+
+/* Popups */
+
+/* kalo bisa, tolong buat ini popup wrap nya kagak perlu di hardcode tiap ada popup baru hehe */
+.popup-wrap,
+.popup-wrap-copy1,
+.popup-wrap-copy2,
+.popup-wrap-copy3,
+.popup-wrap-copy4 {
   display: none;
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 3;
+  z-index: 1;
 }
 
 .popup {
@@ -204,6 +376,72 @@ tbody tr th {
   display: flex;
   flex-direction: column;
   padding: 12px;
+  color: white;
+}
+
+#popup-logout,
+#popup-delete {
+  top: 31%;
+  left: 40%;
+  width: 320px;
+  height: fit-content;
+  gap: 4px;
+  text-align: center;
+  padding-bottom: 20px;
+  /* color: white; */
+}
+
+#popup-logout .button-wrap,
+#popup-delete .button-wrap {
+  justify-content: center;
+  gap: 20px;
+}
+
+#popup-logout .button-wrap button,
+#popup-delete .button-wrap button {
+  margin: 0;
+  height: 32px;
+}
+
+.confirm {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  padding: 0 20px;
+  gap: 20px;
+}
+
+.confirm .xl {
+  height: fit-content;
+}
+
+#popup-edit-user {
+  top: 18%;
+  left: 38%;
+  width: 400px;
+  height: 320px;
+}
+
+#popup-edit-vendor {
+  top: 8%;
+  left: 38%;
+  width: 400px;
+  height: 480px;
+}
+
+#popup-edit-report {
+  top: 18%;
+  left: 33%;
+  width: 560px;
+  height: 400px;
+}
+
+#popup-report-counts {
+  top: 18%;
+  left: 27%;
+  width: 680px;
+  height: 320px;
 }
 
 #popup-response {
@@ -224,8 +462,14 @@ tbody tr th {
   display: flex;
   width: auto;
   height: 100%;
-  color: white;
   padding: 0 20px;
+}
+
+.reports {
+  height: 260px;
+  overflow: auto;
+  /* color: #303D58; */
+  font-size: 12px !important;
 }
 
 .input {
@@ -262,11 +506,13 @@ tbody tr th {
 } */
 
 .button-wrap {
+  width: auto;
   display: flex;
   /* align-items: end; */
   justify-content: end;
   gap: 8px;
   height: fit-content;
+  padding: 0 10px;
 }
 
 .wrapper {
@@ -276,6 +522,7 @@ tbody tr th {
 }
 
 #foto_bukti,
+#foto_vendor,
 #rating {
   color: #bfc3cb;
 }
@@ -312,6 +559,10 @@ input[type='number'] {
   border-radius: 10px;
   /* padding: 0; */
   color: #303d58 !important;
+}
+
+input[type='radio'] {
+  width: 48px;
 }
 
 button {

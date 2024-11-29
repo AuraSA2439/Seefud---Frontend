@@ -36,7 +36,7 @@ export default {
 </template>
 
 <style>
-.fade-enter-active,
+/* .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
 }
@@ -49,5 +49,5 @@ export default {
 .fade-enter-to,
 .fade-leave-from {
   opacity: 1;
-}
+} */
 </style>

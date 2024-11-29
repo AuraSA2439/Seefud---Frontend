@@ -14,6 +14,21 @@ const routes = [
         name: 'Home',
         component: () => import('@/views/HomeView.vue'),
       },
+      {
+        path: 'users',
+        name: 'User',
+        component: () => import('@/views/UserView.vue'),
+      },
+      {
+        path: 'vendors',
+        name: 'Vendor',
+        component: () => import('@/views/VendorView.vue'),
+      },
+      {
+        path: 'reports',
+        name: 'Report',
+        component: () => import('@/views/ReportView.vue'),
+      },
     ],
   },
   {

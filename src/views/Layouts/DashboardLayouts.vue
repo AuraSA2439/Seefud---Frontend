@@ -1,6 +1,11 @@
 <script>
+import Sidebar from '@/components/Sidebar.vue'
 export default {
+  components: {
+    Sidebar,
+  },
   name: 'DashboardLayout',
+
   mounted() {
     this.addStyle('/assets/css/styles-general.css')
   },
@@ -28,26 +33,23 @@ export default {
 </script>
 
 <template>
-  <RouterView v-slot="{ Component }">
-    <Transition name="fade">
-      <component :is="Component" />
-    </Transition>
-  </RouterView>
+  <main>
+    <Sidebar />
+    <RouterView v-slot="{ Component }">
+      <Transition name="fade">
+        <component :is="Component" />
+      </Transition>
+    </RouterView>
+  </main>
 </template>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
+table tr.done {
+  background-color: #c3c3c3 !important;
+  color: black !important;
 }
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-to,
-.fade-leave-from {
-  opacity: 1;
+button[disabled] {
+  filter: grayscale(1) !important;
+  cursor: not-allowed !important;
 }
 </style>
