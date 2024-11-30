@@ -34,7 +34,7 @@ const routes = [
   {
     path: '/auth',
     component: AuthLayout,
-    meta: { layoutKey: 'auth' }, // Tambahkan layoutKey untuk membedakan layout
+    meta: { layoutKey: 'auth' },
     redirect: { name: 'Login' },
     children: [
       {
@@ -43,6 +43,10 @@ const routes = [
         component: () => import('@/views/LoginView.vue'),
       },
     ],
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: { name: 'Home' },
   },
 ]
 
