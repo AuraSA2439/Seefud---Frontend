@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 import { usePopup } from '@/stores/popup'
+import { useAuthStore } from '@/stores/auth'
+const auth = useAuthStore()
 const popup = usePopup()
 const toggle = ref(true)
 </script>
@@ -19,7 +21,7 @@ const toggle = ref(true)
           <!-- <img src="" alt="avatar"> -->
         </div>
         <div class="account-details">
-          <div class="bold sm">John Doe</div>
+          <div class="bold sm">{{ auth?.user?.name }}</div>
           <div class="medium sm">Administrator</div>
         </div>
       </div>

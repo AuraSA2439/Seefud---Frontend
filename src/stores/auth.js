@@ -1,6 +1,9 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import axiosInstance from '@/plugins/axios'
+import { jwtDecode } from 'jwt-decode'
+// Correct import for jwt-decode
 
 export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = ref(false)
@@ -16,24 +19,41 @@ export const useAuthStore = defineStore('auth', () => {
     return true
   }
 
-  const login = async (username, password) => {
+  const login = async (email, password) => {
     try {
-      // Simulasi API
-      if (username === 'user' && password === 'password') {
-        const token = 'fake-jwt-token'
-        const expiryTime = new Date().getTime() + 60 * 60 * 1000 // 1 hour in milliseconds
+      // Request ke API untuk login
+      const response = await axiosInstance.post('/admin/auth/login', {
+        email,
+        password,
+      })
 
+      if (response.data.status === 'success') {
+        const { token } = response.data.data
+        const expiryTime = new Date().getTime() + 60 * 60 * 1000 // Contoh: 1 jam (kustomisasi sesuai backend)
+
+        // Simpan token dan waktu expire di localStorage
         localStorage.setItem('token', token)
         localStorage.setItem('tokenExpiry', expiryTime.toString())
+
+        // Decode token untuk mendapatkan data pengguna
+        const decodedToken = jwtDecode(token)
+
+        // Update state
         isAuthenticated.value = true
-        user.value = { username }
+        user.value = {
+          id: decodedToken.id,
+          name: decodedToken.name,
+          email: decodedToken.email,
+        }
+
+        // Redirect ke halaman utama
         router.push('/')
       } else {
-        throw new Error('Invalid credentials')
+        throw new Error(response.data.message || 'Login failed')
       }
     } catch (error) {
       console.error(error.message)
-      throw error
+      throw new Error(error.response?.data?.error || error.message)
     }
   }
 
@@ -46,9 +66,17 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   const initializeAuth = () => {
-    if (localStorage.getItem('token') && checkTokenExpiry()) {
+    const token = localStorage.getItem('token')
+    if (token && checkTokenExpiry()) {
+      // Decode token untuk mendapatkan data pengguna
+      const decodedToken = jwtDecode(token)
+
       isAuthenticated.value = true
-      user.value = { username: 'user' } // Fetch user info if required
+      user.value = {
+        id: decodedToken.id,
+        name: decodedToken.name,
+        email: decodedToken.email,
+      }
     } else {
       logout()
     }

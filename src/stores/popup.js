@@ -1,8 +1,12 @@
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 import { defineStore } from 'pinia'
+import axiosInstance from '@/plugins/axios'
+import { useReports } from './reports'
+const reportStore = useReports()
 
 export const usePopup = defineStore('popup', () => {
   const popUpResponseClick = ref(false)
+  const endpointDelete = ref(null)
   let currentTargetButtonTanggapi = ref(null)
 
   const report_response = (target) => {
@@ -22,17 +26,24 @@ export const usePopup = defineStore('popup', () => {
       }
     }
   }
-  const redirectToReport = (target) => {
+  const redirectToReport = async (target, reportStatus, idFeedback) => {
     if (!currentTargetButtonTanggapi.value) return // Pastikan tombol target ada
 
-    closePopup(target)
+    try {
+      const response = await axiosInstance.patch(`/admin/feedback/${idFeedback}`, {
+        report_status: reportStatus,
+      })
 
-    // Disable button dan tambahkan class done hanya pada elemen yang benar
-    currentTargetButtonTanggapi.value.setAttribute('disabled', 'disabled')
-    currentTargetButtonTanggapi.value.textContent = 'Selesai'
-    const row = currentTargetButtonTanggapi.value.closest('tr') // Pastikan manipulasi baris yang tepat
-    if (row) {
-      row.classList.add('done')
+      if (response.data.status === 'success') {
+        await reportStore.fetchAll()
+        closePopup(target)
+        // Redirect ke halaman utama
+      } else {
+        throw new Error(response.data.message || 'Login failed')
+      }
+    } catch (error) {
+      console.error(error.message)
+      throw new Error(error.response?.data?.error || error.message)
     }
   }
 
@@ -46,8 +57,24 @@ export const usePopup = defineStore('popup', () => {
     document.getElementById('popup-edit-click').style.display = 'block'
   }
 
-  const delete_popup = () => {
+  const delete_popup = (endpoint) => {
+    endpointDelete.value = endpoint
     document.getElementById('popup-delete-click').style.display = 'block'
+  }
+
+  const executeEndpointDelete = async (targetPopup) => {
+    try {
+      console.log(endpointDelete.value)
+      const response = await axiosInstance.delete(endpointDelete.value)
+      console.log(response)
+      alert(response.data.message)
+      window.location.reload()
+    } catch (error) {
+      console.log(error)
+      alert(error.response.data.message)
+    } finally {
+      closePopup(targetPopup)
+    }
   }
 
   const report_counts_popup = () => {
@@ -55,6 +82,7 @@ export const usePopup = defineStore('popup', () => {
   }
 
   return {
+    executeEndpointDelete,
     popUpResponseClick,
     report_response,
     redirectToReport,

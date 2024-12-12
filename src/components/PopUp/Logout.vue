@@ -11,20 +11,24 @@ const auth = useAuthStore()
         <span class="material-icons">close</span>
       </button>
       <div class="confirm">
-        <div class="xl">Do you want to logout?</div>
-        <div class="button-wrap">
-          <button class="btn-medium blue-300 bold xl" id="logout" @click="auth.logout">Yes</button>
-          <button
-            class="btn-medium primary-300 bold xl"
-            @click="
-              popup.closePopup(
-                $event.target.parentElement.parentElement.parentElement.parentElement,
-              )
-            "
-          >
-            Cancel
-          </button>
-        </div>
+        <slot>
+          <div class="xl">Do you want to logout?</div>
+          <div class="button-wrap">
+            <button class="btn-medium blue-300 bold xl" id="logout" @click="auth.logout">
+              Yes
+            </button>
+            <button
+              class="btn-medium primary-300 bold xl"
+              @click="
+                popup.closePopup(
+                  $event.target.parentElement.parentElement.parentElement.parentElement,
+                )
+              "
+            >
+              Cancel
+            </button>
+          </div>
+        </slot>
       </div>
     </div>
   </div>

@@ -251,6 +251,7 @@ th img {
   flex-direction: column;
   justify-content: center;
   height: 100px;
+  object-fit: cover;
 }
 
 th.aksi-cell {
@@ -276,11 +277,13 @@ th .wrapper {
 tr {
   display: table;
   width: 100%;
+  background-color: inherit;
   table-layout: fixed;
 }
 
 tbody {
-  height: 240px;
+  /* height: 240px; */
+  /* min-height: 240px; */
   overflow-y: scroll;
   /* display: block; */
 }
@@ -381,8 +384,9 @@ tbody tr th {
 
 #popup-logout,
 #popup-delete {
-  top: 31%;
-  left: 40%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 320px;
   height: fit-content;
   gap: 4px;
@@ -489,7 +493,9 @@ tbody tr th {
   margin-left: 4px;
   margin-right: 4px;
 }
-
+.input *:disabled {
+  color: white !important;
+}
 .input textarea {
   border-radius: 20px;
   border: solid 1px #bfc3cb;

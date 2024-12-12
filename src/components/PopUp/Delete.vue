@@ -11,7 +11,11 @@ const popup = usePopup()
       <div class="confirm">
         <div class="bold xl">Apakah kamu yakin kamu mau menghapus data ini?</div>
         <div class="button-wrap">
-          <button class="btn-medium red-300 bold xl" id="delete" @click="popup.logout()">
+          <button
+            class="btn-medium red-300 bold xl"
+            id="delete"
+            @click="popup.executeEndpointDelete($event.target)"
+          >
             Yes
           </button>
           <button class="btn-medium green-300 bold xl" @click="popup.closePopup($event.target)">

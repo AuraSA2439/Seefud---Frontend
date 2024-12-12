@@ -1,17 +1,28 @@
 <script setup>
 import { ref } from 'vue'
 import { useAuthStore } from '@/stores/auth'
+import Logout from '@/components/PopUp/Logout.vue'
+import { usePopup } from '@/stores/popup'
+
+const messageError = ref('')
+
+const popup = usePopup()
 
 const authStore = useAuthStore()
-const username = ref('')
+const email = ref('')
 const password = ref('')
+const buttonSubmit = ref(null)
 
 const handleLogin = async () => {
+  buttonSubmit.value.disabled = true
   try {
-    await authStore.login(username.value, password.value)
+    await authStore.login(email.value, password.value)
   } catch (error) {
-    alert('Login failed: ' + error.message)
+    popup.logout_popup()
+    messageError.value = error
+    // alert('Login failed: ' + error)
   }
+  buttonSubmit.value.disabled = false
 }
 </script>
 <template>
@@ -21,18 +32,18 @@ const handleLogin = async () => {
       <img src="/assets/images/seefud-logo.png" alt="logo" />
       <form class="input-form" @submit.prevent="handleLogin">
         <div class="input-box">
-          <input
-            type="text"
-            name="username/email"
-            placeholder="Username/Email"
-            v-model="username"
-          />
+          <input type="email" name="email" placeholder="Email" v-model="email" />
           <br />
-          <input type="text" name="password" placeholder="Password" v-model="password" />
+          <input type="password" name="password" placeholder="Password" v-model="password" />
         </div>
-        <button type="submit" id="login-button" class="xl bold prime">LOGIN</button>
+        <button ref="buttonSubmit" type="submit" id="login-button" class="xl bold prime">
+          LOGIN
+        </button>
         <a href="" class="base">Forgot password?</a>
       </form>
     </div>
+    <logout>
+      <div class="xl" v-text="messageError"></div>
+    </logout>
   </main>
 </template>

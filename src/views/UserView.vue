@@ -1,12 +1,48 @@
 <script setup>
+import { onMounted, ref } from 'vue'
 import Sidebar from '@/components/Sidebar.vue'
 
 import Logout from '@/components/PopUp/Logout.vue'
 import Edit from '@/components/PopUp/Edit.vue'
 import Delete from '@/components/PopUp/Delete.vue'
-
+import SkeletonLoading from '@/components/SkeletonLoading.vue'
+import axiosInstance from '@/plugins/axios'
 import { usePopup } from '@/stores/popup'
 const popup = usePopup()
+
+const loading = ref(true)
+const users = ref([])
+const user = ref({})
+const loadingUser = ref(true)
+
+const getUsers = async () => {
+  try {
+    const result = await axiosInstance.get('/users')
+    console.log(result.data.data)
+    users.value = result.data.data
+    loading.value = false
+  } catch (error) {
+    console.error('Error fetching data:', error.message)
+    loading.value = false
+  }
+}
+
+const handleEdit = async (id) => {
+  loadingUser.value = true
+  popup.edit_popup()
+  try {
+    const response = await axiosInstance.get(`/users/${id}`)
+    user.value = response.data.data
+    console.log(user.value)
+  } catch (error) {
+    console.log(error.message)
+  } finally {
+    loadingUser.value = false
+  }
+}
+onMounted(() => {
+  getUsers()
+})
 </script>
 
 <template>
@@ -32,211 +68,35 @@ const popup = usePopup()
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tbody id="data" class="sm white">
-                  <tr>
-                    <th>John Doe</th>
-                    <th>johndoe@gmail.com</th>
-                    <th>Vendor</th>
-                    <th class="aksi-cell">
-                      <div class="wrapper">
-                        <button
-                          class="respon-btn btn-small red-300 bold sm"
-                          @click="popup.delete_popup()"
-                        >
-                          Delete
-                        </button>
-                        <button
-                          class="respon-btn btn-small green-300 bold sm"
-                          @click="popup.edit_popup()"
-                        >
-                          Edit
-                        </button>
-                      </div>
-                    </th>
+                <tbody v-if="loading" class="sm white">
+                  <SkeletonLoading
+                    v-for="n in 10"
+                    :key="n"
+                    width="100%"
+                    height="20px"
+                    style="margin-bottom: 5px"
+                  />
+                </tbody>
+                <tbody v-else id="data" class="sm white">
+                  <tr v-if="users.length == 0">
+                    <th colspan="4">Data masih kosong</th>
                   </tr>
-                  <tr>
-                    <th>John Doe</th>
-                    <th>johndoe@gmail.com</th>
-                    <th>Vendor</th>
+
+                  <tr v-for="(user, i) in users" :key="i">
+                    <th>{{ user.name }}</th>
+                    <th>{{ user.email }}</th>
+                    <th>{{ user.role }}</th>
                     <th class="aksi-cell">
                       <div class="wrapper">
                         <button
                           class="respon-btn btn-small red-300 bold sm"
-                          @click="popup.delete_popup()"
+                          @click="popup.delete_popup(`/admin/users/${user.id}`)"
                         >
                           Delete
                         </button>
                         <button
                           class="respon-btn btn-small green-300 bold sm"
-                          @click="popup.edit_popup()"
-                        >
-                          Edit
-                        </button>
-                      </div>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>John Doe</th>
-                    <th>johndoe@gmail.com</th>
-                    <th>Vendor</th>
-                    <th class="aksi-cell">
-                      <div class="wrapper">
-                        <button
-                          class="respon-btn btn-small red-300 bold sm"
-                          @click="popup.delete_popup()"
-                        >
-                          Delete
-                        </button>
-                        <button
-                          class="respon-btn btn-small green-300 bold sm"
-                          @click="popup.edit_popup()"
-                        >
-                          Edit
-                        </button>
-                      </div>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>John Doe</th>
-                    <th>johndoe@gmail.com</th>
-                    <th>Vendor</th>
-                    <th class="aksi-cell">
-                      <div class="wrapper">
-                        <button
-                          class="respon-btn btn-small red-300 bold sm"
-                          @click="popup.delete_popup()"
-                        >
-                          Delete
-                        </button>
-                        <button
-                          class="respon-btn btn-small green-300 bold sm"
-                          @click="popup.edit_popup()"
-                        >
-                          Edit
-                        </button>
-                      </div>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>John Doe</th>
-                    <th>johndoe@gmail.com</th>
-                    <th>Vendor</th>
-                    <th class="aksi-cell">
-                      <div class="wrapper">
-                        <button
-                          class="respon-btn btn-small red-300 bold sm"
-                          @click="popup.delete_popup()"
-                        >
-                          Delete
-                        </button>
-                        <button
-                          class="respon-btn btn-small green-300 bold sm"
-                          @click="popup.edit_popup()"
-                        >
-                          Edit
-                        </button>
-                      </div>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>John Doe</th>
-                    <th>johndoe@gmail.com</th>
-                    <th>Vendor</th>
-                    <th class="aksi-cell">
-                      <div class="wrapper">
-                        <button
-                          class="respon-btn btn-small red-300 bold sm"
-                          @click="popup.delete_popup()"
-                        >
-                          Delete
-                        </button>
-                        <button
-                          class="respon-btn btn-small green-300 bold sm"
-                          @click="popup.edit_popup()"
-                        >
-                          Edit
-                        </button>
-                      </div>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>John Doe</th>
-                    <th>johndoe@gmail.com</th>
-                    <th>Vendor</th>
-                    <th class="aksi-cell">
-                      <div class="wrapper">
-                        <button
-                          class="respon-btn btn-small red-300 bold sm"
-                          @click="popup.delete_popup()"
-                        >
-                          Delete
-                        </button>
-                        <button
-                          class="respon-btn btn-small green-300 bold sm"
-                          @click="popup.edit_popup()"
-                        >
-                          Edit
-                        </button>
-                      </div>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>John Doe</th>
-                    <th>johndoe@gmail.com</th>
-                    <th>Vendor</th>
-                    <th class="aksi-cell">
-                      <div class="wrapper">
-                        <button
-                          class="respon-btn btn-small red-300 bold sm"
-                          @click="popup.delete_popup()"
-                        >
-                          Delete
-                        </button>
-                        <button
-                          class="respon-btn btn-small green-300 bold sm"
-                          @click="popup.edit_popup()"
-                        >
-                          Edit
-                        </button>
-                      </div>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>John Doe</th>
-                    <th>johndoe@gmail.com</th>
-                    <th>Vendor</th>
-                    <th class="aksi-cell">
-                      <div class="wrapper">
-                        <button
-                          class="respon-btn btn-small red-300 bold sm"
-                          @click="popup.delete_popup()"
-                        >
-                          Delete
-                        </button>
-                        <button
-                          class="respon-btn btn-small green-300 bold sm"
-                          @click="popup.edit_popup()"
-                        >
-                          Edit
-                        </button>
-                      </div>
-                    </th>
-                  </tr>
-                  <tr>
-                    <th>John Doe</th>
-                    <th>johndoe@gmail.com</th>
-                    <th>Vendor</th>
-                    <th class="aksi-cell">
-                      <div class="wrapper">
-                        <button
-                          class="respon-btn btn-small red-300 bold sm"
-                          @click="popup.delete_popup()"
-                        >
-                          Delete
-                        </button>
-                        <button
-                          class="respon-btn btn-small green-300 bold sm"
-                          @click="popup.edit_popup()"
+                          @click="handleEdit(user.id)"
                         >
                           Edit
                         </button>
@@ -246,7 +106,7 @@ const popup = usePopup()
                 </tbody>
               </table>
             </div>
-            <div class="nav-bot primary-500">
+            <div v-if="users.length > 20" class="nav-bot primary-500">
               <div class="wrapper">
                 <span class="material-icons">chevron_left</span>
                 <div class="page-number">
@@ -274,29 +134,44 @@ const popup = usePopup()
           <div class="separete">
             <div class="input medium lg">
               Nama User
-              <input type="text" name="username" disabled placeholder="Nama User" />
+              <SkeletonLoading height="30px" v-if="loadingUser" />
+              <input v-else type="text" name="username" disabled v-model="user.name" />
             </div>
             <div class="input medium lg">
               Email
-              <input type="email" name="email" disabled placeholder="namamu@gmail.com" />
+              <SkeletonLoading height="40px" v-if="loadingUser" />
+              <input v-else v-model="user.email" disabled type="email" name="email" />
             </div>
             <div class="input input-big medium lg">
               Role
-              <div class="wrapper base">
-                <input type="radio" id="vendor-role" name="role" value="Vendor" />
+              <SkeletonLoading height="40px" v-if="loadingUser" />
+              <div v-else class="wrapper base">
+                <input
+                  v-model="user.role"
+                  type="radio"
+                  id="vendor-role"
+                  name="role"
+                  value="vendor"
+                />
                 <label for="vendor-role">Vendor</label><br />
-                <input type="radio" id="consumer-role" name="role" value="Consumer" />
-                <label for="consumer-role">Consumer</label><br />
+                <input
+                  v-model="user.role"
+                  type="radio"
+                  id="consumer-role"
+                  name="role"
+                  value="customer"
+                />
+                <label for="consumer-role">Customer</label><br />
               </div>
             </div>
           </div>
         </div>
         <div class="button-wrap">
           <button class="btn-medium green-300 bold xl" id="terima" @click="popup.logout()">
-            Terima
+            Update
           </button>
           <button class="btn-medium red-300 bold xl" @click="popup.closePopup($event.target)">
-            Tolak
+            Cancel
           </button>
         </div>
       </div>
